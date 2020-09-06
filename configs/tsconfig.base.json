@@ -5,15 +5,15 @@
     "strict": true,
     "esModuleInterop": true,
     "declaration": false,
-    "target": "es5",
-    "module": "es2015",
+    "target": "es6",
+    "module": "esnext",
     "sourceMap": true,
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "lib": [
       "dom",
-      "es2015"
+      "es2020"
     ]
   },
   "exclude": [

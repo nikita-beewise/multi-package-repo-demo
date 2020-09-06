@@ -1,0 +1,11 @@
+<svg class="preloader-compact" id="eyxht8rseqm1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+     shape-rendering="geometricPrecision" text-rendering="geometricPrecision" width="24" height="24">
+    <g id="eyxht8rseqm2">
+        <path id="eyxht8rseqm3"
+              d="M16.307000,4.855200L20.498700,12.115400L16.307000,19.375600L7.923720,19.375600L3.732050,12.115400L7.923720,4.855200L16.307000,4.855200Z"
+              fill="none" stroke="rgb(114,179,255)" stroke-width="3"/>
+        <path id="eyxht8rseqm4"
+              d="M15.793700,12.115400L13.954500,15.300900L10.276200,15.300900L8.437060,12.115400L10.276200,8.929870L13.954500,8.929870L15.793700,12.115400Z"
+              fill="rgb(114,179,255)" stroke="none" stroke-width="1"/>
+    </g>
+</svg>
