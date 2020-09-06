@@ -4,10 +4,9 @@ import { ReactSVG } from 'react-svg';
 
 export interface IconProps {
   type: string;
-  className?: string;
 }
 
-const IconComponent: React.FC<IconProps> = ({ type, className, ...rest }): JSX.Element | null => {
+const IconComponent: React.FC<IconProps> = ({ type, ...rest }): JSX.Element | null => {
   const latestType = useRef<{ type?: string | null }>({ type: null });
   const [image, setImage] = useState<string>('');
 
@@ -21,7 +20,7 @@ const IconComponent: React.FC<IconProps> = ({ type, className, ...rest }): JSX.E
     });
   }, [type]);
 
-  return !!image ? <StyledReactSvg className={className} src={image} {...rest} /> : null;
+  return !!image ? <StyledReactSvg src={image} {...rest} /> : null;
 };
 
 export const StyledReactSvg = styled(ReactSVG)`
