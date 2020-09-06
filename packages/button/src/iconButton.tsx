@@ -6,7 +6,7 @@ import Icon from '@nikita-beewise-test/icon';
 
 const IconButton: React.FC<IconButtonProps> = ({ iconName, children, ...props }): JSX.Element => (
   <Button {...props}>
-    {!!iconName && <StyledIcon type={iconName} />}
+    {!!iconName && <StyledIcon iconName={iconName} />}
     {children}
   </Button>
 );

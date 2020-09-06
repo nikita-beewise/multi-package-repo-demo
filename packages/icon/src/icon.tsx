@@ -1,32 +1,25 @@
 import React, { useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
 import { ReactSVG } from 'react-svg';
 
 export interface IconProps {
-  type: string;
+  iconName: string;
 }
 
-const IconComponent: React.FC<IconProps> = ({ type, ...rest }): JSX.Element | null => {
-  const latestType = useRef<{ type?: string | null }>({ type: null });
+const IconComponent: React.FC<IconProps> = ({ iconName, ...rest }): JSX.Element | null => {
+  const latestType = useRef<{ iconName?: string | null }>({ iconName: null });
   const [image, setImage] = useState<string>('');
 
   useEffect(() => {
     // useRef added to avoid race conditions on dynamic import (to achieve latest passed type to be rendered)
-    latestType.current.type = type;
-    import(`../images/${type}.svg`).then((image) => {
-      if (image.default.includes(latestType.current.type)) {
+    latestType.current.iconName = iconName;
+    import(`../images/${iconName}.svg`).then((image) => {
+      if (image.default.includes(latestType.current.iconName)) {
         setImage(image.default);
       }
     });
-  }, [type]);
+  }, [iconName]);
 
-  return !!image ? <StyledReactSvg src={image} {...rest} /> : null;
+  return !!image ? <ReactSVG src={image} {...rest} /> : null;
 };
-
-export const StyledReactSvg = styled(ReactSVG)`
-  path {
-    stroke: #0075ff;
-  }
-`;
 
 export default IconComponent;

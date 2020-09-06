@@ -1,1 +1,1 @@
-export { default, IconProps, StyledReactSvg } from './icon';
+export { default, IconProps } from './icon';

@@ -5,7 +5,7 @@ import Icon from '../src';
 
 describe('icon', () => {
   it('defined', () => {
-    const wrapper = mount(<Icon type="x" />);
+    const wrapper = mount(<Icon iconName="x" />);
     expect(wrapper).toBeDefined();
   });
 });
