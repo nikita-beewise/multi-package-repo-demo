@@ -1,5 +1,5 @@
 {
-  "name": "@nikita-beewise-test/icon",
+  "name": "@nikita-beewise-test/button",
   "version": "0.0.1",
   "types": "dist/cjs/index.d.ts",
   "module": "dist/esm/index.js",
@@ -11,16 +11,18 @@
   "repository": "git@github.com:nikita-beewise/multi-package-repo-demo.git",
   "license": "MIT",
   "scripts": {
-    "build": "npm run clean && npm run copy:images && npm run compile:esm && npm run compile:cjs",
+    "build": "npm run clean && npm run compile:esm && npm run compile:cjs",
     "clean": "rm -rf ./dist",
-    "compile:esm": "npx tsc -p build/tsconfig.esm.json",
-    "compile:cjs": "npx tsc -p build/tsconfig.cjs.json",
-    "prepublishOnly": "npx bolt build",
-    "copy:images": "npx cpx 'images/**' 'dist/images'"
+    "compile:esm": "tsc -p build/tsconfig.esm.json",
+    "compile:cjs": "tsc -p build/tsconfig.cjs.json",
+    "prepublishOnly": "bolt build"
   },
   "files": [
     "dist"
   ],
+  "dependencies": {
+    "@nikita-beewise-test/icon": "0.0.1"
+  },
   "devDependencies": {
     "@types/jest": "^26.0.13",
     "@types/react": "^16.9.49",
@@ -29,6 +31,7 @@
     "typescript": "^4.0.2"
   },
   "peerDependencies": {
+    "@nikita-beewise-test/icon": "^0.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "styled-components": "^5.2.0"

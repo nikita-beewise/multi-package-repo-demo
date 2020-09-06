@@ -49,6 +49,7 @@
     "awesome-typescript-loader": "^5.2.1",
     "bolt": "^0.24.5",
     "bolt-query": "^1.1.4",
+    "cpx": "^1.5.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.4",
     "enzyme-to-json": "^3.5.0",
