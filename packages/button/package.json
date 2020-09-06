@@ -17,9 +17,12 @@
     "compile:cjs": "tsc -p build/tsconfig.cjs.json",
     "prepublishOnly": "bolt build"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "dependencies": {
-    "@nikita-beewise-test/icon": "0.0.2"
+    "@nikita-beewise-test/icon": "0.0.2",
+    "@nikita-beewise-test/theme": "0.0.1"
   },
   "devDependencies": {
     "@types/jest": "^26.0.13",
@@ -30,6 +33,7 @@
   },
   "peerDependencies": {
     "@nikita-beewise-test/icon": "^0.0.2",
+    "@nikita-beewise-test/theme": "^0.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "styled-components": "^5.2.0"

@@ -1,35 +1,29 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { text, select } from '@storybook/addon-knobs';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 
-import Button, { IButton } from '../src';
+import { Button, IconButton, ButtonProps, ButtonTypes, IconButtonProps } from '../src';
+
+const buttonTypes: Array<ButtonTypes> = ['primary', 'secondary'];
 
 storiesOf('Button', module)
-  .add('Default', () => {
-    const buttonTypes = {
-      primary: 'primary',
-      secondary: 'secondary',
-    };
-    const props: IButton = {
-      buttonType: select('Type of button', buttonTypes, 'secondary'),
-      icon: text('Icon name', 'x'),
+  .add('with text', () => {
+    const props: ButtonProps = {
+      onClick: action('Button click'),
+      disabled: boolean('Disabled', false),
+      buttonType: select('Button type', buttonTypes, buttonTypes[0]),
     };
 
-    return <Button {...props} />;
+    return <Button {...props}>{text('Text', 'I am a Button')}</Button>;
   })
-  .add('With children', () => {
-    const buttonTypes = {
-      primary: 'primary',
-      secondary: 'secondary',
-    };
-    const props: IButton = {
-      buttonType: select('Type of button', buttonTypes, 'secondary'),
-      icon: text('Icon name', 'x'),
+  .add('with icon', () => {
+    const props: IconButtonProps = {
+      onClick: action('IconButton click'),
+      disabled: boolean('Disabled', false),
+      buttonType: select('Button type', buttonTypes, buttonTypes[0]),
+      iconName: text('Icon name', 'camera'),
     };
 
-    return (
-      <Button {...props}>
-        <input type="text" value="I am a child!" />
-      </Button>
-    );
+    return <IconButton {...props}>{text('Text', 'I am a IconButton')}</IconButton>;
   });

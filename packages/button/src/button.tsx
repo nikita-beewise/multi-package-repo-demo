@@ -1,30 +1,39 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import Icon from '@nikita-beewise-test/icon';
+import theme from './theme';
+import { ButtonProps } from './interface';
 
-export interface IButton {
-  buttonType: string;
-  icon?: string;
-  children?: JSX.Element | string;
-}
+const Button = styled.button<ButtonProps>`
+  ${({ buttonType = 'primary' }) => css`
+    background-color: ${theme[buttonType].backgroundColor};
+    color: ${theme[buttonType].color};
 
-interface StyledButtonProps {
-  buttonType: string;
-}
+    &:disabled {
+      cursor: default;
+    }
+  `}
+  ${({ buttonType }) =>
+    buttonType === 'primary' &&
+    css`
+      path {
+        stroke: ${theme[buttonType].path.stroke};
+      }
 
-const ButtonComponent: React.FC<IButton> = ({
-  buttonType = 'primary',
-  icon,
-  children,
-  ...rest
-}): JSX.Element => (
-  <StyledButton buttonType={buttonType} {...rest}>
-    {icon && <StyledButtonIcon type={icon} />}
-    {children}
-  </StyledButton>
-);
+      &:disabled {
+        background-color: ${theme[buttonType].disabled.backgroundColor};
+      }
+    `}
+    ${({ buttonType }) =>
+    buttonType === 'secondary' &&
+    css`
+      &:disabled {
+        color: ${theme[buttonType].disabled.color};
 
-export const StyledButton = styled.button<StyledButtonProps>`
+        path {
+          stroke: ${theme[buttonType].disabled.path.stroke};
+        }
+      }
+    `}
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,46 +43,8 @@ export const StyledButton = styled.button<StyledButtonProps>`
   outline: none;
   cursor: pointer;
   box-sizing: border-box;
-  ${({ buttonType }) =>
-    buttonType === 'primary' &&
-    css`
-      background-color: #0075ff;
-      color: #fff;
-
-      &[disabled] {
-        background-color: #8d8d8d;
-
-        path {
-          stroke: #fff;
-        }
-      }
-    `}
-  ${({ buttonType }) =>
-    buttonType === 'secondary' &&
-    css`
-      background-color: #f7f7f7;
-      color: #0075ff;
-
-      &[disabled] {
-        color: #8d8d8d;
-
-        path {
-          stroke: #8d8d8d;
-        }
-      }
-    `}
-
-  &[disabled] {
-    cursor: default;
-  }
+  font-size: 13px;
+  font-weight: 500;
 `;
 
-export const StyledButtonIcon = styled(Icon)`
-  div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-`;
-
-export default ButtonComponent;
+export default Button;
